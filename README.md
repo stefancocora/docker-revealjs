@@ -1,8 +1,6 @@
 # Reveal.js inside a Docker container
 
-Using [Reaveal.js](http://lab.hakim.se/reveal-js/ ) on [Github](https://github.com/hakimel/reveal.js ) 
-using Version **3.0.0**
-
+Using **Reveal.js** ([Homepage](http://lab.hakim.se/reveal-js/ ) | [Github](https://github.com/hakimel/reveal.js ) ) Version **3.0.0**
 
 forked from *Peter Parente*s [dockerfiles](https://github.com/parente/dockerfiles/tree/master/revealjs ) 
 
@@ -14,8 +12,9 @@ run `sudo make build` to build the basing image with `onbuild`-Property
 
 ### Creating A Presentation
 
-1. edit file `test/slides.md`
-2. put images inside `test/images` directory
+1. get the [Example Presentation Project](https://github.com/fschl/docker-revealjs-example ) or build an equivalent on your own
+2. edit the markdown file `slides.md`
+2. put images inside `/images` directory
 3. run `sudo make dev`
 4. visit `http://localhost:8000`
 5. for speakernotes press `S`

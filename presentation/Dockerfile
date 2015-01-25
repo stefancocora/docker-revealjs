@@ -1,1 +1,0 @@
-FROM fschl/revealjs:onbuild
