@@ -1,41 +1,43 @@
-# Reveal.js inside a Docker container
+# Reveal.js in Docker
 
-Using **Reveal.js** ([Homepage](http://lab.hakim.se/reveal-js/ ) | [Github](https://github.com/hakimel/reveal.js ) ) Version **3.0.0**
+This image provides a **Reveal.js** ([Homepage](http://lab.hakim.se/reveal-js/ ) | [Github](https://github.com/hakimel/reveal.js )) presentation webserver inside a docker container.
+It uses Version **3.0.0**
 
-forked from *Peter Parente*s [dockerfiles](https://github.com/parente/dockerfiles/tree/master/revealjs ) 
+The Dockerfile is heavily based on work from *Peter Parente* [dockerfiles](https://github.com/parente/dockerfiles/tree/master/revealjs ) 
 
 ## Usage
 
-### Building The Base Image 
-
-run `sudo make build` to build the basing image with `onbuild`-Property
+Also available via docker hub. Simply `docker pull fschl/revealjs`.
 
 ### Creating A Presentation
 
-1. get the [Example Presentation Project](https://github.com/fschl/docker-revealjs-example ) or build an equivalent on your own
-2. edit the markdown file `slides.md`
+*fschl/revealjs* comes with `onbuild` support. To create a new presentation use a 1-line-Dockerfile with
+
+```bash
+FROM fschl/revealjs:onbuild
+```
+
+ provide your slides in a file called **slides.md**. Then start a new container using
+
+```bash
+docker build -t $(USER)/revealjs:slides . && docker run -it --rm -p 8000:8000 $(USER)/revealjs:slides
+```
+
+An [Example Presentation Project](https://github.com/fschl/docker-revealjs-example ) is available. It comes with a handy Makefile.
+
+1. edit the markdown file `slides.md`
 2. put images inside `/images` directory
-3. run `sudo make dev`
-4. visit `http://localhost:8000`
-5. for speakernotes press `S`
-5. ...
-6. **PROFIT**
+3. set specific styles in `custom.css`
+4. run `make dev`
+5. visit `http://localhost:8000`
+
+Using the **dev** goal enables you to update the slides content, images and custom.css styles without needing to rebuilding the image or restarting the container!
 
 ### Running A Presentation
 
 1. run `sudo make slides`
 2. for speakernotes press `S`
-3. ...
-4. **PROFIT**
-
-## Creating Slides
-
-- use a markdown `h2 title` for the slides title
-- write normal text for, yea... text
-- use `---` in a single line to seperate slides
-- use `-` in a single line to seperate vertical slides
-- start line with `Note:` for speakernotes
-- **TODO:** add notes for *fragments, etc.*
+3. **present**
 
 ## Credits To
 
