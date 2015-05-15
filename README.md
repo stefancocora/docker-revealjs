@@ -1,3 +1,17 @@
+# Fork
+This is a fork of the original project [https://github.com/fschl/docker-revealjs](https://github.com/fschl/docker-revealjs)
+
+# Reason for this fork
+The reason for this fork is to provide a way of adding the `index.html` into the docker image.
+
+Since some customisations for revealjs are only possible to be done by modifying the `index.html` this file needs to be part of
+the container.
+
+See the original readme below.
+
+- - -
+
+
 # Reveal.js in Docker
 
 This image provides a **Reveal.js** ([Homepage](http://lab.hakim.se/reveal-js/ ) | [Github](https://github.com/hakimel/reveal.js )) presentation webserver inside a docker container.

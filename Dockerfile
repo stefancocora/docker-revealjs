@@ -36,6 +36,7 @@ ADD title.js /revealjs/plugin/
 ONBUILD ADD slides.md /revealjs/md/
 ONBUILD ADD images/ /revealjs/images/
 ONBUILD ADD custom.css /revealjs/css/
+ONBUILD ADD index.html /revealjs/index.html
 
 EXPOSE 8000
 VOLUME ["/revealjs/md/"]
